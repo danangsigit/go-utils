@@ -22,7 +22,7 @@ func Println(data ...interface{}) {
 		if valStr == "" {
 			valStr = stringYellow(1, "<empty_string>")
 		} else {
-			valStr = stringRed(6, valStr)
+			valStr = StringRed(6, valStr)
 		}
 		str = append(str, valStr)
 	}
@@ -32,7 +32,7 @@ func Println(data ...interface{}) {
 	fmt.Println(stringGreen(1, fmt.Sprintf("Trace\t : %s", getCaller(2))))
 	fmt.Println(stringGreen(1, fmt.Sprintf("Time\t : %v", time.Now())))
 	fmt.Println(stringGreen(1, "Output\t :"))
-	fmt.Println(stringRed(6, messages))
+	fmt.Println(StringRed(6, messages))
 	fmt.Println(stringYellow(5, "---------------------------------------------------"))
 }
 
@@ -42,14 +42,14 @@ func PrintJSON(data interface{}) {
 	var prettyJSON bytes.Buffer
 	json.Indent(&prettyJSON, buff, "", "     ")
 	fmt.Println(stringYellow(5, "---------------------------------------------------"))
-	fmt.Println(stringRed(6, fmt.Sprintf("Trace\t : %s", getCaller(2))))
-	fmt.Println(stringRed(6, fmt.Sprintf("Time\t : %v", time.Now())))
-	fmt.Println(stringRed(6, "Data\t :"))
+	fmt.Println(StringRed(6, fmt.Sprintf("Trace\t : %s", getCaller(2))))
+	fmt.Println(StringRed(6, fmt.Sprintf("Time\t : %v", time.Now())))
+	fmt.Println(StringRed(6, "Data\t :"))
 	fmt.Println(stringGreen(1, string(prettyJSON.Bytes())))
 	fmt.Println(stringYellow(5, "---------------------------------------------------"))
 }
 
-func stringRed(fontType int, data interface{}) string {
+func StringRed(fontType int, data interface{}) string {
 	return fmt.Sprintf("\x1b[31;%dm%+v\x1b[0m", fontType, data)
 }
 

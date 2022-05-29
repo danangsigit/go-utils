@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/agungdwiprasetyo/go-utils/debug"
+	"github.com/danangsigit/go-utils/debug"
 )
 
 func TestParseDateFormat(t *testing.T) {
@@ -28,7 +28,7 @@ func TestParseDateFormat(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := ParseDateFormat(tt.args.date); got != tt.want {
-				str := debug.StringRed(fmt.Sprintf("ParseDateFormat() = %v, want %v", got, tt.want))
+				str := debug.StringRed(5, fmt.Sprintf("ParseDateFormat() = %v, want %v", got, tt.want))
 				t.Errorf(str)
 			}
 		})
@@ -56,7 +56,7 @@ func TestParseDateString(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := ParseDateString(tt.args.date); got != tt.want {
-				str := debug.StringRed(fmt.Sprintf("ParseDateString(%v) = %v, want %v", tt.args.date, got, tt.want))
+				str := debug.StringRed(6, fmt.Sprintf("ParseDateString(%v) = %v, want %v", tt.args.date, got, tt.want))
 				t.Errorf(str)
 			}
 		})
